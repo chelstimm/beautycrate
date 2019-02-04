@@ -1,4 +1,4 @@
-## beautycrate
+# Beauty | Crate
 
 ### This app uses Node.js & MySQL to allow users to make beauty product purchases. 
 
