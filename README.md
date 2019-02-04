@@ -1,6 +1,6 @@
 ## beautycrate
 
-# This app uses Node.js & MySQL to allow users to make beauty product purchases. 
+### This app uses Node.js & MySQL to allow users to make beauty product purchases. 
 
 ## Overview
 
