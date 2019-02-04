@@ -1,0 +1,4 @@
+node_modules
+insert.sql
+.DS_Store
+.env
