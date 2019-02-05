@@ -22,6 +22,7 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
     if (err) throw err;
     console.log("Connection is working")
+    console.log("\n_______________________________________________\n");
     makeTable();
 });
 
@@ -31,10 +32,10 @@ function makeTable() {
             console.log(res[i].id + " || " + res[i].product + " || " +
                 res[i].department + " || " + res[i].price + " || " + res[i].stock + "\n");
         }
+        console.log("\n_______________________________________________\n");
         startShopping(res);
     })
 }
-
 
 function startShopping(res) {
     inquirer.prompt([{
@@ -75,7 +76,10 @@ function startShopping(res) {
                                     console.log("\n_______________________________________________\n");
                                     console.log("Your total is " + total + " Thanks for shopping!");
                                     console.log("\n_______________________________________________\n");
-                                    continueShopping();
+                                    console.log("Inventory has been updated. See below.");
+                                    console.log("\n_______________________________________________\n");
+                                    makeTable();
+                                    // continueShopping();
                                 })
                         } else {
                             console.log("Not a valid quantity.");
@@ -88,23 +92,23 @@ function startShopping(res) {
                 console.log("Choose another Product");
                 startShopping(res);
             }
-             // Ask the customer if they would like to continue shopping //
-             function continueShopping() {
-                inquirer.prompt({
-                    name: "action",
-                    type: "list",
-                    message: " Would you like to make another purchase?\n",
-                    choices: ["Yes", "No"]
-                }).then(function (answer) {
-                    switch (answer.action) {
-                        case "Yes":
-                        makeTable();
-                            break;
-                        case "No":
-                            connection.end();
-                            break;
-                    }
-                })
-            };
         })
 }
+
+ // Ask the customer if they would like to continue shopping //
+//  function continueShopping() {
+//     inquirer.prompt({
+//         name: "action",
+//         type: "list",
+//         message: " Would you like to make another purchase?\n",
+//         choices: ["Yes", "No"]
+//     }).then(function (answer) {
+//         switch (answer.action) {
+//             case "Yes":
+//                 break;
+//             case "No":
+//                 connection.end();
+//                 break;
+//         }
+//     })
+// }
